@@ -25,3 +25,17 @@ MANUAL THINGS (Things you need to take care of, the script doesn't do it automat
 3. Disable updater.exe / waterfox updates in some way.  Like I mentioned above, waterfox will just go ahead and update itself no matter what you think about it, so unless you disable the updater.exe in some way I could find no other method to stop the automatic updates which may break your plugins etc.
 4. Modify the script to be correct for your system! (like the profile name, which is hardcoded and needs to be changed.)
 5. ImDisk needs to be installed.  All the ramdisk magic is done by that!
+
+USAGE:
+
+I create a symbolic link using mklink to make a 0kb .exe from the .bat, so I can make a shortcut to it in the start menu which I pin to the taskbar. Because ImDisk requires admin priveleges, the UAC will be engaged :(
+
+On the first execution your profile in local and roaming are renamed to .backup, a ramdisk is created, and both .backup folders are copied there. Symlinks are then created between the ramdisk and original paths of the profile folders.
+
+When you exit waterfox, the bat file will stay up and ask you if you want to delete everything by typing "Y" (case sensitive!) and pressing enter.  Deleting everything is, writing everything back to the ssd and deleting the ramdisk.  This makes sense if you are done browsing for the day, or feel that something you did (plugin install / plugin or browser configuration change etc.) or something you browsed (history / bookmarks etc.) was important enough that you really want to write everything back to the hard drive.  If you intend to use non-ramdisk waterfox (just running the executable, instead of using the script), then you should definitely press "Y" and re-write everything.
+
+Alternatively, and I most often do this, you may just close the script (press enter, enter anything other than "Y" and press enter, or press the red X) and re-open the script anytime to re-open ramdisk waterfox (without copying anything anywhere; it should be quite quick to start).  Whenever you are finally ready to "commit" the browsing history / broswer or plugin configuration back to the hard drive just press "Y" and push enter in the script after you have closed all waterfox windows.
+
+When the script cleans up (following "Y" and ENTER) it will delete the symlinks and copy the folders back to the HD.
+
+It will also backup the profile right before waterfox is run (assuming it is not a repeat run, following a close where you did not enter "Y") and keep the last 2 backups (deleting the oldest backup each time you run).
