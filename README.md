@@ -12,7 +12,7 @@ SCRIPT SOLUTION BENEFITS:
 
 SCRIPT SOLUTION DETRIMENTS:
 * If the machine goes down / power goes out while running in ramdisk mode, your browsing history as well as any extensions you might have configured or installed will be gone.
-* It's slower than it ought to be on the first start, because I decided to make a copy of the profile directories on the SSD before taking any other steps.  The script could be a lot faster if you didn't mind that your profile might be completely gone if the computer crahses / power dies. The script could also be better written to only backup the profile fully on some sort of periodic ba
+* It's slower than it ought to be on the first start, because I decided to make a copy of the profile directories on the SSD before taking any other steps.  The script could be a lot faster if you didn't mind that your profile might be completely gone if the computer crahses / power dies. The script could also be better written to only backup the profile fully on some sort of periodic basis.
 * The script doesn't have much error handling, and a few nagging "press here" messages that might not be necessary by default.
 * Still some manual steps you have to perform, not everything has been put into the unified script...
 
