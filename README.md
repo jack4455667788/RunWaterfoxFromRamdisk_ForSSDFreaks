@@ -17,13 +17,15 @@ SCRIPT SOLUTION DETRIMENTS:
 * This script can and has totally F*ed my profile up.  I think this version is good but who knows... backup everything first!!!
 * I cannot find any arguments to pass to waterfox.exe when starting it from the command line that won't circumvent the update process.  Not only will it not circumvent the update process, it won't even do you the courtesy of displaying the "do you want to update" dialog box, and will just go ahead and do it all behind your back without consent :( . I changed updater.exe to a dummy file and took away all priveleges to it, but some may find this extreme and insecure.
 * Still some manual steps you have to perform, not everything has been put into the unified script...
+* Crummy dos window is present at all times, and requires finicky case-sensitive command-line usage...
+* DOS Bat seems fundamentally shit for this purpose.  It acts wonky.  Especially when I depend on for loops to populate variables with the output from executables within if blocks, such as when I check to see if a folder is a symlink or not... (or god forbid put a commented line as the last line in an if block which is forbidden without any intelligible error message) DOWN WITH BAT!
 
 MANUAL THINGS (Things you need to take care of, the script doesn't do it automatically):
 
 1. Configure waterfox to not waste so much memory on caching in about:config ( you need to make sure it does not exceed the ramdisk size you provision, by default in the script it is 512mb, but could be much smaller or larger depending on your configurations).
 2. OPT - Disable the jump list item for waterfox, so it isn't hammering your ssd on the jump list anymore (this is also a security issue, in that the recent temp files written and deleted hold your browsing history...).
 3. Disable updater.exe / waterfox updates in some way.  Like I mentioned above, waterfox will just go ahead and update itself no matter what you think about it, so unless you disable the updater.exe in some way I could find no other method to stop the automatic updates which may break your plugins etc.
-4. Modify the script to be correct for your system! (like the profile name, which is hardcoded and needs to be changed.)
+4. Modify the script to be correct for your system! (like the profile folder name, which is hardcoded and needs to be changed everywhere it is found)
 5. ImDisk needs to be installed.  All the ramdisk magic is done by that!
 
 USAGE:
