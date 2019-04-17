@@ -30,7 +30,7 @@ MANUAL THINGS (Things you need to take care of, the script doesn't do it automat
 
 USAGE:
 
-I create a symbolic link using mklink to make a 0kb .exe from the .bat, so I can make a shortcut to it in the start menu which I pin to the taskbar. Because ImDisk requires admin priveleges, the UAC will be engaged :(
+I create a symbolic link using mklink to make a 0kb .exe from the .bat, so I can make a shortcut to it in the start menu which I pin to the taskbar. I have converted the script to no longer show the uac, but it accomplishes this miracle through sacrificing the security of the system's administrator account.  Use the previous version (the latest one that does not use runas.exe, feb 15 2019) or modify the way that imdisk is executed to work for you (or suggest a better solution, please!).
 
 On the first execution your profile in local and roaming are renamed to .backup, a ramdisk is created, and both .backup folders are copied there. Symlinks are then created between the ramdisk and original paths of the profile folders.
 
